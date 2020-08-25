@@ -1,4 +1,48 @@
+h1, p, button {
+  font-family: monospace;
+}
+
+h1 {
+  text-align: center;
+  font-size: 25px;
+}
+
+p{
+  font-size: 15px;
+  text-align: center;
+}
+
+button {
+  font-size: 19px;
+  margin: 10px;
+  display: block;
+}
+
+.start-screen button {
+  margin: auto;
+}
+
+img {
+  margin: 10px;
+  display: block;
+  margin: auto;
+}
+
+.main-parent div {
+  width: 90%;
+  border: 2px solid #000000;
+  margin: 10px auto;
+  padding: 9px 9px 19px 9px;
+}
+
 /* Your styles should be mobile-first and responsive */
+
+@media (min-width: 650px) {
+  .main-parent div {
+    width: 80%;
+    padding: 15px 15px 25px 15px;
+  }
+}
 
 /** 
   * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
