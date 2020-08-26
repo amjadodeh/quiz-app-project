@@ -1,1 +1,1 @@
-### Quiz App project
+### Quiz App project: Skateboarding Trick Quiz

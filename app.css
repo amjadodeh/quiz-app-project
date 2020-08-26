@@ -1,46 +1,151 @@
+body {
+  background-color: #f6f5f4;
+  background-repeat: repeat-y;
+  background-size: 100%;
+}
+
+header {
+  background-color: #111111;
+  margin-bottom: 10px;
+}
+
 h1, p, button {
   font-family: monospace;
+  color: #111111;
 }
 
 h1 {
+  color: #E4DA54;
   text-align: center;
-  font-size: 25px;
+  font-size: 27px;
+  padding: 15px;
+  margin: 0;
 }
 
 p{
-  font-size: 15px;
+  font-size: 17px;
   text-align: center;
+}
+
+ul {
+  text-align: center;
+  margin: 10px;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
 }
 
 button {
   font-size: 19px;
-  margin: 10px;
+  margin: auto;
   display: block;
+  border-color: #BB591D;
+  padding: 5px;
 }
 
-.start-screen button {
-  margin: auto;
+.submit {
+  border-color: #BB591D;
+  padding: 5px;
 }
 
 img {
-  margin: 10px;
+  border: 2px solid #BB591D;
+  text-align: center;
   display: block;
   margin: auto;
+  width: 90%;
 }
 
-.main-parent div {
+.box {
   width: 90%;
-  border: 2px solid #000000;
+  border: 2px solid #BB591D;
   margin: 10px auto;
   padding: 9px 9px 19px 9px;
+  background-color: #ffffff;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected {
+  margin: 2px;
+  filter: brightness(150%);
+}
+
+.red-bg {
+  flex: auto;
+  max-width:700px;
+  max-height:175px;
+  margin-top: 0;
+  background-color: #f55255;
+}
+
+.orange-bg {
+  flex: auto;
+  max-width:700px;
+  max-height:175px;
+  margin-top: -22px;
+  background-color: #ffd150;
+}
+
+.green-bg {
+  flex: auto;
+  max-width:700px;
+  max-height:175px;
+  margin-top: -22px;
+  background-color: #2bc22b;
+}
+
+.blue-bg {
+  flex: auto;S
+  max-width:700px;
+  max-height:175px;
+  margin-top: -22px;
+  background-color: #3aa7f9;
 }
 
 /* Your styles should be mobile-first and responsive */
 
-@media (min-width: 650px) {
-  .main-parent div {
-    width: 80%;
+@media (min-width: 700px) {
+  .box {
+    width: 77%;
     padding: 15px 15px 25px 15px;
+  }
+  .options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .orange-bg, .green-bg, .blue-bg {
+    margin-top: 0;
+  }
+  img {
+    width: 55%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .box {
+    width: 63%;
+    padding: 15px 15px 25px 15px;
+  }
+  .options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .orange-bg, .green-bg, .blue-bg, .red-bg {
+    margin-top: 0;
+    max-height:250px;
+    height: auto;
+    width: auto;
+  }
+  img {
+    width: 40%;
   }
 }
 
