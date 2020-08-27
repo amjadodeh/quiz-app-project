@@ -109,7 +109,7 @@ function startScreenTemplate() {
 }
 
 function generateTemplate(qN) {
-  return '<div class="main-parent"><ul class="question-and-score"><li id="question-number">Question Number: ' + (qN+1) + '/5</li><li id="score">Score: ' + (STORE.score) + '/5</li></ul><img src="' + (STORE.questions[qN].gif) + '" alt="slow motion skateboarding trick demo"><div class="correct"><p>Thats correct!<p/></div><div class="incorrect"><p>Thats incorrect, the correct answer is ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><div class="box"><p>What is the name of this trick?</p><div class="options"><input type="image" src="images/' + (STORE.questions[qN].answers.a) + '" alt="option a" aria-pressed="false" class="red-bg option"><input type="image" src="images/' + (STORE.questions[qN].answers.b) + '" alt="option b" aria-pressed="false" class="orange-bg option"></div><div class="options"><input type="image" src="images/' + (STORE.questions[qN].answers.c) + '" alt="option c" aria-pressed="false" class="green-bg option"><input type="image" src="images/' + (STORE.questions[qN].answers.d) + '" alt="option d" aria-pressed="false" class="blue-bg option"></div><button type="button" id="submit" class="submit">Submit</button><button type="button" id="next" class="next">Next</button></div></div>';
+  return '<div class="main-parent"><ul class="question-and-score"><li id="question-number">Question Number: ' + (qN+1) + '/5</li><li id="score">Score: ' + (STORE.score) + '/5</li></ul><img src="' + (STORE.questions[qN].gif) + '" alt="slow motion skateboarding trick demo"><div class="correct"><p>Thats correct!<p/></div><div class="incorrect"><p>Thats incorrect, the correct answer is ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><div class="box"><p>What is the name of this trick?</p><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.a) + '); background-repeat: no-repeat; background-size: 100% 100%; background-position: center; margin: 0; padding: 0;" alt="option a" aria-pressed="false" class="red-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.b) + '); background-repeat: no-repeat; background-size: 100% 100%; background-position: center; margin: 0; padding: 0;" alt="option b" aria-pressed="false" class="orange-bg option"></form><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.c) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option c" aria-pressed="false" class="green-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.d) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option d" aria-pressed="false" class="blue-bg option"></form><button type="button" id="submit" class="submit">Submit</button><button type="button" id="next" class="next">Next</button></div></div>';
 
   /*
 
@@ -130,14 +130,14 @@ function generateTemplate(qN) {
   <div class="box">
 
     <p>What is the name of this trick?</p>
-    <div class="options">
-      <input type="image" src="images/' + (STORE.questions[qN].answers.a) + '" alt="option a" aria-pressed="false" class="red-bg option">
-      <input type="image" src="images/' + (STORE.questions[qN].answers.b) + '" alt="option b" aria-pressed="false" class="orange-bg option">
-    </div>
-    <div class="options">
-       <input type="image" src="images/' + (STORE.questions[qN].answers.c) + '" alt="option c" aria-pressed="false" class="green-bg option">
-       <input type="image" src="images/' + (STORE.questions[qN].answers.d) + '" alt="option d" aria-pressed="false" class="blue-bg option">
-    </div>
+    <form class="options">
+      <input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.a) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option a" aria-pressed="false" class="red-bg option">
+      <input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.b) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option b" aria-pressed="false" class="orange-bg option">
+    </form>
+    <form class="options">
+      <input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.c) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option c" aria-pressed="false" class="green-bg option">
+      <input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.d) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option d" aria-pressed="false" class="blue-bg option">
+    </form>
 
     <button type="button" id="submit" class="submit">Submit</button>
     <button type="button" id="next" class="next">Next</button>
@@ -205,7 +205,7 @@ function submitButton() {
   $('.main-parent').on('click', '.submit', function(event) {
     event.preventDefault();
     if( $('.selected').attr('aria-pressed') == 'true') {
-      if ($('.selected').attr('src') == STORE.questions[STORE.questionNumber].img) {
+      if ($('.selected').attr('style').includes(STORE.questions[STORE.questionNumber].img)) {
         STORE.score += 1;
         render();
         $('.correct').show();
