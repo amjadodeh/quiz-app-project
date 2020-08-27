@@ -112,7 +112,7 @@ img {
 
 @media (min-width: 700px) {
   .box {
-    width: 77%;
+    width: 63%;
     padding: 15px 15px 25px 15px;
   }
   .options {
@@ -124,13 +124,13 @@ img {
     margin-top: 0;
   }
   img {
-    width: 55%;
+    width: 40%;
   }
 }
 
 @media (min-width: 1400px) {
   .box {
-    width: 63%;
+    width: 40%;
     padding: 15px 15px 25px 15px;
   }
   .options {
@@ -145,7 +145,7 @@ img {
     width: auto;
   }
   img {
-    width: 40%;
+    width: 33%;
   }
 }
 
