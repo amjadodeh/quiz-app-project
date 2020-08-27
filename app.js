@@ -130,7 +130,7 @@ function generateTemplate(qN) {
 }
 
 function finalScoreTemplate() {
-  return '<div class="main-parent"><img src="https://media.giphy.com/media/l4KhUsTvaxtBP3fzi/giphy.gif" alt="animated kickflip over trash can"><div class="box"><p><b>Your final score is: ' + (STORE.score) + '/5</b></p></div></div>';
+  return '<div class="main-parent"><img src="https://media.giphy.com/media/l4KhUsTvaxtBP3fzi/giphy.gif" alt="animated kickflip over trash can"><div class="box"><p><b>Your final score is: ' + (STORE.score) + '/5</b></p><button type="button" id="start" class="startQuiz">Start New Quiz</button></div></div>';
 
   /*
 
@@ -139,7 +139,8 @@ function finalScoreTemplate() {
   <img src="https://media.giphy.com/media/l4KhUsTvaxtBP3fzi/giphy.gif" alt="animated kickflip over trash can">
 
   <div class="box">
-    <p><b>You're score is: ' + (STORE.score) + '/5</b></p>
+    <p><b>Your final score is: ' + (STORE.score) + '/5</b></p>
+    <button type="button" id="start" class="startQuiz">Start New Quiz</button>
   </div>
   
   </div>'
@@ -156,7 +157,9 @@ function render() {
     $('.incorrect').hide();
     $('.next').hide();
   } else {
-    $('.main-parent').html(finalScoreTemplate)
+    $('.main-parent').html(finalScoreTemplate);
+    STORE.quizStarted = false;
+    startQuiz();
   }
 }
 
@@ -167,6 +170,8 @@ function startQuiz() {
   $('.startQuiz').on('click', function(event) {
     event.preventDefault();
     STORE.quizStarted = true;
+    STORE.questionNumber = 0;
+    STORE.score = 0;
     $(this).closest('.main-parent').remove();
     render();
   });
