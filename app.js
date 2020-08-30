@@ -109,7 +109,7 @@ function startScreenTemplate() {
 }
 
 function generateTemplate(qN) {
-  return '<div class="main-parent"><ul class="question-and-score"><li id="question-number">Question Number: ' + (qN+1) + '/5</li><li id="score">Score: ' + (STORE.score) + '/5</li></ul><img src="' + (STORE.questions[qN].gif) + '" alt="slow motion skateboarding trick demo"><div class="correct"><p>Thats correct!<p/></div><div class="incorrect"><p>Thats incorrect, the correct answer is ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><div class="box"><p>What is the name of this trick?</p><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.a) + '); background-repeat: no-repeat; background-size: 100% 100%; background-position: center; margin: 0; padding: 0;" alt="option a" aria-pressed="false" class="red-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.b) + '); background-repeat: no-repeat; background-size: 100% 100%; background-position: center; margin: 0; padding: 0;" alt="option b" aria-pressed="false" class="orange-bg option"></form><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.c) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option c" aria-pressed="false" class="green-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.d) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option d" aria-pressed="false" class="blue-bg option"></form><button type="button" id="submit" class="submit">Submit</button><button type="button" id="next" class="next">Next</button></div></div>';
+  return '<div class="main-parent"><ul class="question-and-score"><li id="question-number">Question Number: ' + (qN+1) + '/5</li><li id="score">Score: ' + (STORE.score) + '/5</li></ul><img src="' + (STORE.questions[qN].gif) + '" alt="slow motion skateboarding trick demo"><div class="box"><div class="correct"><p>Thats correct! This is a ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><div class="incorrect"><p>Thats incorrect, the correct answer is ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><p class="q">What is the name of this trick?</p><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.a) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option a" aria-pressed="false" class="red-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.b) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option b" aria-pressed="false" class="orange-bg option"></form><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.c) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option c" aria-pressed="false" class="green-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.d) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option d" aria-pressed="false" class="blue-bg option"></form><button type="button" id="submit" class="submit">Submit</button><button type="button" id="next" class="next">Next</button></div></div>';
 
   /*
 
@@ -123,13 +123,13 @@ function generateTemplate(qN) {
 
   <img src="' + (STORE.questions[qN].gif) + '" alt="slow motion skateboarding trick demo">
     
-  <div class="correct"><p>Thats correct!<p/></div>
-  <div class="incorrect"><p>Thats incorrect, the correct answer is ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div>
-
 
   <div class="box">
 
-    <p>What is the name of this trick?</p>
+    <div class="correct"><p>Thats correct! This is a ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div>
+    <div class="incorrect"><p>Thats incorrect, the correct answer is ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div>
+
+    <p class="q">What is the name of this trick?</p>
     <form class="options">
       <input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.a) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option a" aria-pressed="false" class="red-bg option">
       <input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.b) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option b" aria-pressed="false" class="orange-bg option">
@@ -209,8 +209,12 @@ function submitButton() {
         STORE.score += 1;
         render();
         $('.correct').show();
+        $('.options').hide();
+        $('.q').hide();
       } else {
         $('.incorrect').show();
+        $('.options').hide();
+        $('.q').hide();
       }
       STORE.questionNumber += 1;
       $('.submit').hide();
