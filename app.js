@@ -1,8 +1,4 @@
-/**
- * Example store structure
- */
 const STORE = {
-  // 5 or more questions are required
   questions: [
     {
       question: '0',
@@ -70,21 +66,6 @@ const STORE = {
   score: 0
 };
 
-/**
- * 
- * Technical requirements:
- * 
- * Your app should include a render() function, that regenerates the view each time the store is updated. 
- * See your course material and access support for more details.
- *
- * NO additional HTML elements should be added to the index.html file.
- *
- * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
- *
- * SEE BELOW FOR THE CATEGORIES OF THE TYPES OF FUNCTIONS YOU WILL BE CREATING 👇
- * 
- */
-
 /********** TEMPLATE GENERATION FUNCTIONS **********/
 // These functions return HTML templates
 
@@ -150,6 +131,7 @@ function finalScoreTemplate() {
 
 /********** RENDER FUNCTION(S) **********/
 // This function conditionally replaces the contents of the <main> tag based on the state of the store
+
 function render() {
   if (STORE.questionNumber < 5) {
     $('.main-parent').html(generateTemplate(STORE.questionNumber))
@@ -163,25 +145,6 @@ function render() {
   }
 }
 
-function startScreen() {
-  $('#main').html('<div class="main-parent"><img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick"><div class="box"><p>This quiz will test your knowledge of skateboarding tricks.</p><button type="button" id="start" class="startQuiz arrowNav">Start Quiz</button></div></div><div class="main-parent"></div>');
-  
-  /*
-
-  '<div class="main-parent">
-      <img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick">
-      <div class="box">
-        <p>This quiz will test your knowledge of skateboarding tricks.</p>
-        <button type="button" id="start" class="startQuiz arrowNav">Start Quiz</button>
-      </div>
-    </div>
-
-    <div class="main-parent">
-
-    </div>'
-
-  */
-}
 
 /********** EVENT HANDLER FUNCTIONS **********/
 // These functions handle events (submit, click, etc)
@@ -281,6 +244,32 @@ function handleOptionClicks() {
     $(this).toggleClass('selected').attr('aria-pressed', !pressed);
   });
 }
+
+
+/********** OTHER FUNCTIONS **********/
+
+function startScreen() {
+  $('#main').html('<div class="main-parent"><img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick"><div class="box"><p>This quiz will test your knowledge of skateboarding tricks.</p><button type="button" id="start" class="startQuiz arrowNav">Start Quiz</button></div></div><div class="main-parent"></div>');
+  
+  /*
+
+  '<div class="main-parent">
+      <img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick">
+      <div class="box">
+        <p>This quiz will test your knowledge of skateboarding tricks.</p>
+        <button type="button" id="start" class="startQuiz arrowNav">Start Quiz</button>
+      </div>
+    </div>
+
+    <div class="main-parent">
+
+    </div>'
+
+  */
+}
+
+
+/********** THE BEST FUNCTION OF THEM ALL **********/
 
 function oneFunctionToRunThemAll() {
   startScreen();
