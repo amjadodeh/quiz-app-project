@@ -88,28 +88,8 @@ const STORE = {
 /********** TEMPLATE GENERATION FUNCTIONS **********/
 // These functions return HTML templates
 
-function startScreenTemplate() {
-  return '<div class="main-parent"><img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick"><div class="box"><p>This quiz will test your knowledge of skateboarding tricks.</p><button type="button" id="start" class="startQuiz">Start Quiz</button></div></div><div class="main-parent"></div>';
-
-  /*
-
-  '<div class="main-parent">
-      <img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick">
-      <div class="box">
-        <p>This quiz will test your knowledge of skateboarding tricks.</p>
-        <button type="button" id="start" class="startQuiz">Start Quiz</button>
-      </div>
-    </div>
-
-    <div class="main-parent">
-
-    </div>'
-
-  */
-}
-
 function generateTemplate(qN) {
-  return '<div class="main-parent"><ul class="question-and-score"><li id="question-number">Question Number: ' + (qN+1) + '/5</li><li id="score">Score: ' + (STORE.score) + '/5</li></ul><img src="' + (STORE.questions[qN].gif) + '" alt="slow motion skateboarding trick demo"><div class="box"><div class="correct"><p>Thats correct! This is a ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><div class="incorrect"><p>Thats incorrect, the correct answer is ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><p class="q">What is the name of this trick?</p><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.a) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option a" aria-pressed="false" class="red-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.b) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option b" aria-pressed="false" class="orange-bg option"></form><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.c) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option c" aria-pressed="false" class="green-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.d) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option d" aria-pressed="false" class="blue-bg option"></form><button type="button" id="submit" class="submit">Submit</button><button type="button" id="next" class="next">Next</button></div></div>';
+  return '<div class="main-parent"><ul class="question-and-score"><li id="question-number">Question Number: ' + (qN+1) + '/5</li><li id="score">Score: ' + (STORE.score) + '/5</li></ul><img src="' + (STORE.questions[qN].gif) + '" alt="slow motion skateboarding trick demo"><div class="box"><div class="correct"><p>Thats correct! This is a ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><div class="incorrect"><p>Thats incorrect, this is a ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div><p class="q">What is the name of this trick?</p><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.a) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option a" aria-pressed="false" class="red-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.b) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option b" aria-pressed="false" class="orange-bg option"></form><form class="options"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.c) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option c" aria-pressed="false" class="green-bg option"><input type="button" style="border: none; height: 133px; background-image: url(images/' + (STORE.questions[qN].answers.d) + '); background-repeat: no-repeat; background-size: 100% 100%; margin: 0; padding: 0;" alt="option d" aria-pressed="false" class="blue-bg option"></form><button type="button" id="submit" class="submit">Submit</button><button type="button" id="next" class="next">Next</button></div></div>';
 
   /*
 
@@ -127,7 +107,7 @@ function generateTemplate(qN) {
   <div class="box">
 
     <div class="correct"><p>Thats correct! This is a ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div>
-    <div class="incorrect"><p>Thats incorrect, the correct answer is ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div>
+    <div class="incorrect"><p>Thats incorrect, this is a ' + (STORE.questions[STORE.questionNumber].correctAnswer) + '.<p/></div>
 
     <p class="q">What is the name of this trick?</p>
     <form class="options">
@@ -184,7 +164,23 @@ function render() {
 }
 
 function startScreen() {
-  $('#main').html(startScreenTemplate());
+  $('#main').html('<div class="main-parent"><img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick"><div class="box"><p>This quiz will test your knowledge of skateboarding tricks.</p><button type="button" id="start" class="startQuiz">Start Quiz</button></div></div><div class="main-parent"></div>');
+  
+  /*
+
+  '<div class="main-parent">
+      <img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick">
+      <div class="box">
+        <p>This quiz will test your knowledge of skateboarding tricks.</p>
+        <button type="button" id="start" class="startQuiz">Start Quiz</button>
+      </div>
+    </div>
+
+    <div class="main-parent">
+
+    </div>'
+
+  */
 }
 
 /********** EVENT HANDLER FUNCTIONS **********/
