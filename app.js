@@ -1,64 +1,64 @@
 const STORE = {
   questions: [
     {
-      question: "0",
+      question: '0',
       answers: {
-        a: "11heelflip.png",
-        b: "12bigspin.png",
-        c: "13kickflip.png",
-        d: "14halfcab.png",
+        a: '11heelflip.png',
+        b: '12bigspin.png',
+        c: '13kickflip.png',
+        d: '14halfcab.png',
       },
-      img: "images/13kickflip.png",
-      correctAnswer: "kickflip",
-      gif: "https://media.giphy.com/media/SWVn3mXwj8fOchallL/giphy.gif",
+      img: 'images/13kickflip.png',
+      correctAnswer: 'kickflip',
+      gif: 'https://media.giphy.com/media/SWVn3mXwj8fOchallL/giphy.gif',
     },
     {
-      question: "1",
+      question: '1',
       answers: {
-        a: "21shuvit.png",
-        b: "22varial-flip.png",
-        c: "23tre-flip.png",
-        d: "24no-comply.png",
+        a: '21shuvit.png',
+        b: '22varial-flip.png',
+        c: '23tre-flip.png',
+        d: '24no-comply.png',
       },
-      img: "images/23tre-flip.png",
-      correctAnswer: "360 flip",
-      gif: "https://media.giphy.com/media/Y0DOHndhhxV2f7cpAH/giphy.gif",
+      img: 'images/23tre-flip.png',
+      correctAnswer: '360 flip',
+      gif: 'https://media.giphy.com/media/Y0DOHndhhxV2f7cpAH/giphy.gif',
     },
     {
-      question: "2",
+      question: '2',
       answers: {
-        a: "31laser-flip.png",
-        b: "32pop-shuvit.png",
-        c: "33z540-flip.png",
-        d: "34hardflip.png",
+        a: '31laser-flip.png',
+        b: '32pop-shuvit.png',
+        c: '33z540-flip.png',
+        d: '34hardflip.png',
       },
-      img: "images/31laser-flip.png",
-      correctAnswer: "laser flip",
-      gif: "https://media.giphy.com/media/icDgF4v8jEEC920qHy/giphy.gif",
+      img: 'images/31laser-flip.png',
+      correctAnswer: 'laser flip',
+      gif: 'https://media.giphy.com/media/icDgF4v8jEEC920qHy/giphy.gif',
     },
     {
-      question: "3",
+      question: '3',
       answers: {
-        a: "41underflip.png",
-        b: "42full-cab.png",
-        c: "43impossible.png",
-        d: "44hardflip.png",
+        a: '41underflip.png',
+        b: '42full-cab.png',
+        c: '43impossible.png',
+        d: '44hardflip.png',
       },
-      img: "images/44hardflip.png",
-      correctAnswer: "hardflip",
-      gif: "https://media.giphy.com/media/eMa2KVfSmvDBUQgvfd/giphy.gif",
+      img: 'images/44hardflip.png',
+      correctAnswer: 'hardflip',
+      gif: 'https://media.giphy.com/media/eMa2KVfSmvDBUQgvfd/giphy.gif',
     },
     {
-      question: "4",
+      question: '4',
       answers: {
-        a: "51gazelle-flip.png",
-        b: "52dolphin-flip.png",
-        c: "53pressure-flip.png",
-        d: "54impossible.png",
+        a: '51gazelle-flip.png',
+        b: '52dolphin-flip.png',
+        c: '53pressure-flip.png',
+        d: '54impossible.png',
       },
-      img: "images/51gazelle-flip.png",
-      correctAnswer: "gazelle flip",
-      gif: "https://media.giphy.com/media/cLZLpq9KvUaU5azAXL/giphy.gif",
+      img: 'images/51gazelle-flip.png',
+      correctAnswer: 'gazelle flip',
+      gif: 'https://media.giphy.com/media/cLZLpq9KvUaU5azAXL/giphy.gif',
     },
   ],
   quizStarted: false,
@@ -158,12 +158,12 @@ function finalScoreTemplate() {
 
 function render() {
   if (STORE.questionNumber < 5) {
-    $(".main-parent").html(generateTemplate(STORE.questionNumber));
-    $(".correct").hide();
-    $(".incorrect").hide();
-    $(".next").hide();
+    $('.main-parent').html(generateTemplate(STORE.questionNumber));
+    $('.correct').hide();
+    $('.incorrect').hide();
+    $('.next').hide();
   } else {
-    $(".main-parent").html(finalScoreTemplate);
+    $('.main-parent').html(finalScoreTemplate);
     STORE.quizStarted = false;
     startQuiz();
   }
@@ -173,113 +173,113 @@ function render() {
 // These functions handle events (submit, click, etc)
 
 function startQuiz() {
-  $(".startQuiz").on("click", function (event) {
+  $('.startQuiz').on('click', function (event) {
     event.preventDefault();
     STORE.quizStarted = true;
     STORE.questionNumber = 0;
     STORE.score = 0;
-    $(this).closest(".main-parent").remove();
+    $(this).closest('.main-parent').remove();
     render();
   });
 }
 
 function submitButton() {
-  $(".main-parent").on("click", ".submit", function (event) {
+  $('.main-parent').on('click', '.submit', function (event) {
     event.preventDefault();
-    if ($(".selected").attr("aria-pressed") == "true") {
+    if ($('.selected').attr('aria-pressed') == 'true') {
       if (
-        $(".selected")
-          .attr("style")
+        $('.selected')
+          .attr('style')
           .includes(STORE.questions[STORE.questionNumber].img)
       ) {
         STORE.score += 1;
         render();
-        $(".correct").show();
-        $(".options").hide();
-        $(".q").hide();
+        $('.correct').show();
+        $('.options').hide();
+        $('.q').hide();
       } else {
-        $(".incorrect").show();
-        $(".options").hide();
-        $(".q").hide();
+        $('.incorrect').show();
+        $('.options').hide();
+        $('.q').hide();
       }
       STORE.questionNumber += 1;
-      $(".submit").hide();
-      $(".next").show();
+      $('.submit').hide();
+      $('.next').show();
     } else {
-      alert("nothing is selected!");
+      alert('nothing is selected!');
     }
   });
 }
 
 function nextButton() {
-  $(".main-parent").on("click", ".next", function (event) {
+  $('.main-parent').on('click', '.next', function (event) {
     event.preventDefault();
-    $(this).closest(".main-parent").remove();
+    $(this).closest('.main-parent').remove();
     render();
   });
 }
 
 function arrowKeyNavigation() {
-  $("body").on("keydown", function (event) {
+  $('body').on('keydown', function (event) {
     var currentOption = document.activeElement;
 
     // left
     if (event.which == 37) {
       event.preventDefault();
-      console.log("left pressed");
-      $(currentOption).prev(".option").focus();
+      console.log('left pressed');
+      $(currentOption).prev('.option').focus();
     }
 
     // up
-    if (event.which == 38 && $(currentOption).attr("alt") == "option c") {
+    if (event.which == 38 && $(currentOption).attr('alt') == 'option c') {
       event.preventDefault();
-      console.log("up pressed");
-      $(".box").find(".option").first().focus();
+      console.log('up pressed');
+      $('.box').find('.option').first().focus();
     } else if (
       event.which == 38 &&
-      $(currentOption).attr("alt") == "option d"
+      $(currentOption).attr('alt') == 'option d'
     ) {
       event.preventDefault();
-      console.log("up pressed");
-      $(".box").find(".option").first().next().focus();
+      console.log('up pressed');
+      $('.box').find('.option').first().next().focus();
     }
 
     // right
     if (event.which == 39) {
       event.preventDefault();
-      console.log("right pressed");
-      $(currentOption).next(".option").focus();
+      console.log('right pressed');
+      $(currentOption).next('.option').focus();
     }
 
     // down
-    if (event.which == 40 && $(currentOption).attr("alt") == "option a") {
+    if (event.which == 40 && $(currentOption).attr('alt') == 'option a') {
       event.preventDefault();
-      console.log("down pressed");
-      $(".box").find(".option").last().prev().focus();
+      console.log('down pressed');
+      $('.box').find('.option').last().prev().focus();
     } else if (
       event.which == 40 &&
-      $(currentOption).attr("alt") == "option b"
+      $(currentOption).attr('alt') == 'option b'
     ) {
       event.preventDefault();
-      console.log("down pressed");
-      $(".box").find(".option").last().focus();
+      console.log('down pressed');
+      $('.box').find('.option').last().focus();
     }
   });
 }
 
 function handleOptionClicks() {
-  $(".option").attr("aria-pressed", false);
-  $(".main-parent").on("click", ".option", function (event) {
-    const pressed = $(this).attr("aria-pressed") === "true";
-    $(".option").not(this).removeClass("selected").attr("aria-pressed", false);
-    $(this).toggleClass("selected").attr("aria-pressed", !pressed);
+  $('.option').attr('aria-pressed', false);
+  $('.main-parent').on('click', '.option', function (event) {
+    const pressed = $(this).attr('aria-pressed') === 'true';
+    $('.option').not(this).removeClass('selected').attr('aria-pressed', false);
+    $(this).toggleClass('selected').attr('aria-pressed', !pressed);
   });
 }
 
 /********** OTHER FUNCTIONS **********/
 
 function startScreen() {
-  $("#main").html(
+  $('#main').html(
     '<div class="main-parent"><img src="https://media.giphy.com/media/xT0GqpNlINWjnQEXpC/giphy.gif" alt="slow motion skateboarding trick"><div class="box"><p>This quiz will test your knowledge of skateboarding tricks.</p><button type="button" id="start" class="startQuiz arrowNav">Start Quiz</button></div></div><div class="main-parent"></div>'
   );
 
