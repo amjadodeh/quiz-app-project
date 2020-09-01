@@ -9,20 +9,22 @@ header {
   margin-bottom: 10px;
 }
 
-h1, p, button {
+h1,
+p,
+button {
   font-family: monospace;
   color: #111111;
 }
 
 h1 {
-  color: #E4DA54;
+  color: #e4da54;
   text-align: center;
   font-size: 27px;
   padding: 15px;
   margin: 0;
 }
 
-p{
+p {
   font-size: 17px;
   text-align: center;
 }
@@ -41,17 +43,17 @@ button {
   font-size: 19px;
   margin: auto;
   display: block;
-  border-color: #BB591D;
+  border-color: #bb591d;
   padding: 7px;
 }
 
 .submit {
-  border-color: #BB591D;
+  border-color: #bb591d;
   padding: 5px;
 }
 
 img {
-  border: 2px solid #BB591D;
+  border: 2px solid #bb591d;
   text-align: center;
   display: block;
   margin: auto;
@@ -60,7 +62,7 @@ img {
 
 .box {
   width: 90%;
-  border: 2px solid #BB591D;
+  border: 2px solid #bb591d;
   margin: 10px auto;
   padding: 9px 9px 19px 9px;
   background-color: #ffffff;
@@ -78,24 +80,24 @@ img {
 
 .red-bg {
   flex: auto;
-  max-width:700px;
-  max-height:175px;
+  max-width: 700px;
+  max-height: 175px;
   margin-top: 0;
   background-color: #f55255;
 }
 
 .orange-bg {
   flex: auto;
-  max-width:700px;
-  max-height:175px;
+  max-width: 700px;
+  max-height: 175px;
   margin-top: -22px;
   background-color: #ffd150;
 }
 
 .green-bg {
   flex: auto;
-  max-width:700px;
-  max-height:175px;
+  max-width: 700px;
+  max-height: 175px;
   margin-top: -22px;
   background-color: #2bc22b;
 }
@@ -103,7 +105,7 @@ img {
 .blue-bg {
   flex: auto;
   max-width: 700px;
-  max-height:175px;
+  max-height: 175px;
   margin-top: -22px;
   background-color: #3aa7f9;
 }
@@ -120,7 +122,9 @@ img {
     flex-direction: row;
     justify-content: center;
   }
-  .orange-bg, .green-bg, .blue-bg {
+  .orange-bg,
+  .green-bg,
+  .blue-bg {
     margin-top: 0;
   }
   img {
@@ -138,9 +142,12 @@ img {
     flex-direction: row;
     justify-content: center;
   }
-  .orange-bg, .green-bg, .blue-bg, .red-bg {
+  .orange-bg,
+  .green-bg,
+  .blue-bg,
+  .red-bg {
     margin-top: 0;
-    max-height:250px;
+    max-height: 250px;
     height: auto;
     width: auto;
   }
@@ -148,10 +155,3 @@ img {
     width: 33%;
   }
 }
-
-/** 
-  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
-  *
-  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
-  *
-*/
