@@ -134,7 +134,7 @@ function startQuiz() {
 function submitButton() {
   $('.main-parent').on('click', '.submit', function (event) {
     event.preventDefault();
-    if ($('.selected').attr('aria-pressed') == 'true') {
+    if ($('.selected').attr('aria-pressed') != 'false') {
       if (
         $('.selected')
           .attr('style')
@@ -211,6 +211,14 @@ function arrowKeyNavigation() {
       event.preventDefault();
       console.log('down pressed');
       $('.box').find('.option').last().focus();
+    }
+
+    // enter
+    if (event.which == 13) {
+      event.preventDefault();
+      console.log('enter pressed');
+      $(currentOption).click();
+      $('.submit').click();
     }
   });
 }
